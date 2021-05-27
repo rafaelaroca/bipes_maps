@@ -106,7 +106,7 @@ function toggleCheckboxC(element)
 
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAibRD04Ik3Wzc9YkjUqzq97gfs6dTNioI&region=br&language=pt_br"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_CLOUD_KEY&region=br&language=pt_br"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
 
