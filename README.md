@@ -7,6 +7,8 @@ Mon May 24 09:39:25 -03 2021
 
 # BIPES Maps
 
+https://bipes.net.br/map/main.php?session=1
+
 # Static markers on Google Map
 
 Static markers are loaded when the page loads and their position are not updated any more.
@@ -44,7 +46,11 @@ https://bipes.net.br/map/updatePosition.php?id=13&lat=-22&long=-5&session=5
 # Shell script example:
 
 for i in `seq 1 20`; 
+
 do 
+
 	lynx -dump "https://bipes.net.br/map/updatePosition.php?id=13&lat=-1$i&long=-5&session=5"; 
+	
 	sleep 1; 
+	
 done
