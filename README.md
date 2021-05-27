@@ -21,9 +21,11 @@ Dynamic markers are loaded on map initializaton and can any atribute can be dyna
 
 Add, update and manage here: https://bipes.net.br/map/crud/index.php/main/dynamic/
 
-Webservice to add a new marker
+# Webservice to add a new marker
 
-https://bipes.net.br/map/addMarker.php?name=test&lat=-11&long=-5&session=5
+You can specify the name of the marker, latitude, longitude, session, info to be shown on info window and its icon!
+
+https://bipes.net.br/map/addMarker.php?name=TestBus&lat=-22&long=-45&session=2&info=Onibus&icon=https://img.icons8.com/plasticine/2x/bus.png
 
 Will return the created ID!
 
