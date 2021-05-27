@@ -1,0 +1,77 @@
+<html>
+	<body>
+<h1>BIPES Mapping Documentation</h1>
+Mon May 24 09:39:25 -03 2021
+
+<br>
+<br>
+<a href=/map/main.php>BIPES Maps</a>
+<br>
+
+<h1>Static markers on Google Map</h2>
+Static markers are loaded when the page loads and their position are not updated any more.
+<br>
+<br>
+Add, update and manage here:
+<a href=https://bipes.net.br/map/crud/index.php/main/static>https://bipes.net.br/map/crud/index.php/main/static</a>
+<h1>Dynamic markers on Google Map</h2>
+Dynamic markers are loaded on map initializaton and can any atribute can be dynamically modified: position, icon, text, session, layer, etc.
+<br>
+Add, update and manage here: <a href=https://bipes.net.br/map/crud/index.php/main/dynamic/>https://bipes.net.br/map/crud/index.php/main/dynamic/</a>
+
+<h2>Webservice to add a new marker</h2>
+
+<a href=
+https://bipes.net.br/map/addMarker.php?name=test&lat=-11&long=-5&session=5
+   >
+https://bipes.net.br/map/addMarker.php?name=test&lat=-11&long=-5&session=5
+	</a>
+<br>
+<br>
+Will return the created ID!
+<br>
+
+<h2>Webservice to clear session</h2>
+Deletes all information / markers related to one session.
+<br>
+<br>
+
+<a href=
+https://bipes.net.br/map/clearSession.php?session=10
+   >
+https://bipes.net.br/map/clearSession.php?session=10
+</a>
+<br>
+
+
+<h2>Webservice to delete specific maker</h2>
+Deletes a specific marker
+<br>
+<br>
+
+<a href=
+https://bipes.net.br/map/deleteMarker.php?session=10&id=99
+>
+https://bipes.net.br/map/deleteMarker.php?session=10&id=99
+</a>
+<br>
+
+<h2>Webservice to update marker position</h2>
+<br>
+<a href=
+https://bipes.net.br/map/updatePosition.php?id=13&lat=-22&long=-5&session=5
+   >
+https://bipes.net.br/map/updatePosition.php?id=13&lat=-22&long=-5&session=5
+</a>
+<br>
+<br>
+Shell script example:
+<pre>
+for i in `seq 1 20`; 
+do 
+	lynx -dump "https://bipes.net.br/map/updatePosition.php?id=13&lat=-1$i&long=-5&session=5"; 
+	sleep 1; 
+done
+</pre>
+	<body>
+</html>
