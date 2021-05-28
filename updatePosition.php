@@ -34,12 +34,6 @@ if (!$con) {
 
 mysqli_select_db($con, $db_name);
 
-
-
-echo ".";
-//Uso
-//https://ain.ufscar.br/map/sensors/envio.php?id=1&leitura=1
-
 if(!isset($_GET["long"])) 
 	exit;
 
@@ -52,37 +46,37 @@ if(!isset($_GET["id"]))
 if(!isset($_GET["session"])) 
 	exit;
 
-
-
-echo "Variaves OK <br>";
-
 if(!is_numeric($_GET["id"])) 
 	exit;
 
 if(!is_numeric($_GET["session"])) 
 	exit;
 
-
-
 $lat = $_GET["lat"];
 $long = $_GET["long"];
 $id = $_GET["id"];
 $session = $_GET["session"];
 
-// Check connection
+echo "Session = $session <br>";
+
 if (!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+$IP = get_client_ip_server();
 echo "IP = $IP <BR>";
-$sql = "UPDATE viaturas SET session=$session, latitude=$lat, longitude=$long WHERE id=$id";
-//echo $sql;
 
-if (mysqli_query($con, $sql)) {
-    echo "Sucesso!";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+$qry = "UPDATE viaturas SET session=?, latitude=?, longitude=? WHERE id=?";
+
+$userStatement = mysqli_prepare($con, $qry);
+mysqli_stmt_bind_param($userStatement, 'ssss', $session, $lat, $long, $id);
+mysqli_stmt_execute($userStatement);
+$result = mysqli_stmt_get_result($userStatement);
+
+echo "<BR>R: $result";
 
 mysqli_close($con);
+
 ?>
+
+
